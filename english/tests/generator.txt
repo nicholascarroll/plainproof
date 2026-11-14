@@ -1,0 +1,50 @@
+# The generator's construct suite.  name | formula | expected sentence, or UNSUPPORTED reason.
+# Expected sentences are written by hand from the generator's rules (README, "How it
+# works"), not copied from its output: a mismatch is a finding about one or the other.
+# Formulas go through the normaliser first, so translated forms can be tested too.
+unary | (EQUAL (LEN (REV X)) (LEN X)) | If Y is a reversal of X then a length of Y is a length of X.
+binary | (EQUAL (LEN (APPEND X Y)) (+ (LEN X) (LEN Y))) | If Z is an append of X and Y, and U is a length of X, and V is a length of Y then a length of Z is a sum of U and V.
+ternary | (EQUAL (UPDATE-NTH N V L) L) | If X is an update-nth of N and V and L then X is L.
+nested | (EQUAL (REV (APPEND X Y)) (APPEND (REV Y) (REV X))) | If Z is an append of X and Y, and U is a reversal of Y, and V is a reversal of X then a reversal of Z is an append of U and V.
+constant | (EQUAL (TRUE-LIST-FIX X) NIL) | If Y is a list-fix of X then Y is Nil.
+number | (EQUAL (NTHCDR 0 X) X) | If Y is an nthcdr of 0 and X then Y is X.
+long-names | (EQUAL (LEN (REV LST)) (LEN LST)) | If Y is a reversal of X then a length of Y is a length of X.
+type-noun | (IMPLIES (TRUE-LISTP X) (EQUAL (TRUE-LIST-FIX X) X)) | If X is a true-list then a list-fix of X is X.
+negation | (IMPLIES (NOT (CONSP X)) (EQUAL (LEN X) 0)) | If Y is a length of X, and X is not a pair then Y is 0.
+comparison | (IMPLIES (< N (LEN X)) (MEMBER-EQUAL (NTH N X) X)) | If N is smaller than a length of X then an nth of N and X is a member of X.
+something | (MEMBER-EQUAL A (APPEND X Y)) | If there is something A, and Z is an append of X and Y then A is a member of Z.
+negated-relation | (NOT (MEMBER-EQUAL X NIL)) | If there is something X then X is not a member of Nil.
+relation-adjective | (SET-EQUIV (REV X) X) | If Y is a reversal of X then Y is set-equivalent-to X.
+difference | (EQUAL (+ X (- Y)) Z) | If there is something Z, and U is a difference of X and Y then U is Z.
+iff | (IFF (CONSP (APPEND X Y)) (OR (CONSP X) (CONSP Y))) | If an append of X and Y is a pair then X is a pair or Y is a pair. If Z is an append of X and Y, and X is a pair or Y is a pair then Z is a pair.
+# The normaliser: translated forms read as their plain terms.
+translated | (EQUAL (LEN (BINARY-APPEND X Y)) (BINARY-+ (LEN X) (LEN Y))) | If Z is an append of X and Y, and U is a length of X, and V is a length of Y then a length of Z is a sum of U and V.
+let | ((LAMBDA (Y X) (EQUAL (LEN Y) (LEN X))) (REV X) X) | If Y is a reversal of X then a length of Y is a length of X.
+and | (IMPLIES (IF (TRUE-LISTP X) (TRUE-LISTP Y) 'NIL) (TRUE-LISTP (BINARY-APPEND X Y))) | If X is a true-list, and Y is a true-list then an append of X and Y is a true-list.
+# Cases: a choice between values in a conclusion is one sentence per case.
+cases | (EQUAL (CAR (APPEND X Y)) (IF (CONSP X) (CAR X) (CAR Y))) | If Z is an append of X and Y, and X is a pair then a head of Z is a head of X. If Z is an append of X and Y, and X is not a pair then a head of Z is a head of Y.
+nested-cases | (EQUAL (LAST (REVAPPEND X Y)) (IF (CONSP Y) (LAST Y) (IF (CONSP X) (CONS (CAR X) Y) Y))) | If Z is a revappend of X and Y, and Y is a pair then a last-pair of Z is a last-pair of Y. If Z is a revappend of X and Y, and U is a head of X, and X is a pair, and Y is not a pair then a last-pair of Z is a cons of U and Y. If Z is a revappend of X and Y, and Y is not a pair, and X is not a pair then a last-pair of Z is Y.
+value-and | (EQUAL (NTH N (REPEAT M A)) (AND (< (NFIX N) (NFIX M)) A)) | If X is a repeat of M and A, and a natural-value of N is smaller than a natural-value of M then an nth of N and X is A. If Y is a repeat of M and A, and X is an nth of N and Y, and a natural-value of N is not smaller than a natural-value of M then X is Nil.
+# Conjunctions, equalities as tests, and equalities between tests.
+conjunction | (AND (CONSP (RCONS A X)) (TRUE-LISTP (RCONS A X))) | If Y is a rcons of A and X then Y is a pair and Y is a true-list.
+iff-with-and | (IFF (MEMBER-EQUAL A (INTERSECTION-EQUAL X Y)) (AND (MEMBER-EQUAL A X) (MEMBER-EQUAL A Y))) | If Z is an intersection of X and Y, and A is a member of Z then A is a member of X and A is a member of Y. If Z is an intersection of X and Y, and A is a member of X, and A is a member of Y then A is a member of Z.
+not-equal | (IFF (MEMBER-EQUAL A (REMOVE-EQUAL B X)) (AND (MEMBER-EQUAL A X) (NOT (EQUAL A B)))) | If Y is a removal of B and X, and A is a member of Y then A is a member of X and A is not B. If Y is a removal of B and X, and A is a member of X, and A is not B then A is a member of Y.
+equality-of-tests | (EQUAL (EQUAL X (TRUE-LIST-FIX X)) (TRUE-LISTP X)) | If X is a list-fix of X then X is a true-list. If X is a true-list then X is a list-fix of X.
+equality-of-equalities | (EQUAL (EQUAL (APPEND X Y1) (APPEND X Y2)) (EQUAL Y1 Y2)) | If an append of X and Y is an append of X and Z then Y is Z. If U is an append of X and Y, and Y is Z then U is an append of X and Z.
+# Truth values: where a test is wanted, a value V means "V is not Nil".
+truthy | (IFF (APPEND X Y) (OR (CONSP X) Y)) | If Z is an append of X and Y, and Z is not Nil then X is a pair or Y is not Nil. If Z is an append of X and Y, and X is a pair or Y is not Nil then Z is not Nil.
+truthy-negated | (IMPLIES (AND (NOT (INDEX-OF K X)) (NOT (INDEX-OF K Y))) (NOT (INDEX-OF K (APPEND X Y)))) | If Z is an append of X and Y, and an index of K and X is Nil, and an index of K and Y is Nil then an index of K and Z is Nil.
+truthy-and-t | (IFF (MEMBER-EQUAL (CAR (LAST X)) X) (AND (CONSP X) T)) | If a head of a last-pair of X is a member of X then X is a pair. If X is a pair then a head of a last-pair of X is a member of X.
+# Tidying cases: "V is <term>" turned round, tests equal to T or NIL, trivial cases dropped.
+equality-hypothesis | (IMPLIES (EQUAL N (LEN X)) (EQUAL (TAKE N X) (TRUE-LIST-FIX X))) | If a length of X is N then a take of N and X is a list-fix of X.
+equal-t | (IMPLIES (ATOM X) (EQUAL (NO-DUPLICATESP-EQUAL X) T)) | If X is atomic then X is duplicate-free.
+equal-nil | (IMPLIES (PREFIXP X Y) (EQUAL (< (LEN Y) (LEN X)) NIL)) | If X is a prefix of Y then a length of Y is not smaller than a length of X.
+choice-in-hypothesis | (EQUAL (PREFIXP X (CONS A Y)) (IF (CONSP X) (AND (EQUAL (CAR X) A) (PREFIXP (CDR X) Y)) T)) | If Z is a cons of A and Y, and X is a prefix of Z, and X is a pair then a head of X is A and a tail of X is a prefix of Y. If Z is a cons of A and Y, and a head of X is A, and a tail of X is a prefix of Y, and X is a pair then X is a prefix of Z. If there is something X, and Z is a cons of A and Y, and X is not a pair then X is a prefix of Z.
+# Refusals.
+too-many-cases | (EQUAL X (IF (CONSP A) (IF (CONSP B) 1 2) (IF (CONSP C) (IF (ATOM D) 3 4) 5))) | UNSUPPORTED more than 4 cases
+or-inside-and | (IMPLIES (CONSP X) (AND (CONSP X) (OR (ATOM X) (CONSP X)))) | UNSUPPORTED 'or' inside 'and' in a conclusion is not in the grammar yet
+no-word | (EQUAL (FOO X) X) | UNSUPPORTED no word for the function foo
+arity | (EQUAL (LEN X Y) X) | UNSUPPORTED len with 2 arguments
+double-negation | (IMPLIES (NOT (NOT (CONSP X))) (CONSP X)) | UNSUPPORTED double negation
+test-equality | (EQUAL (TRUE-LISTP X) Y) | UNSUPPORTED an equality between two tests needs 'if and only if'
+nothing-before-then | (EQUAL (LEN NIL) 0) | UNSUPPORTED nothing to put before 'then'

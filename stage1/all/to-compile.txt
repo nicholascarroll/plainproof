@@ -1,0 +1,320 @@
+append-atom-under-list-equiv | If Z is an append of X and Y, and Y is atomic then Z is list-equivalent-to X.
+append-of-cons | If Z is a cons of A and X, and U is an append of Z and Y, and V is an append of X and Y then U is a cons of A and V.
+append-of-nil | If Y is an append of X and Nil then Y is a list-fix of X.
+append-of-rcons | If Z is a rcons of A and X, and U is an append of Z and Y, and V is a cons of A and Y then U is an append of X and V.
+append-of-repeat-to-cons-of-same | If Y is a repeat of N and A, and Z is a cons of A and X, and U is an append of Y and X then an append of Y and Z is a cons of A and U.
+append-of-take-and-nthcdr | If Y is a take of N and X, and Z is an nthcdr of N and X, and a length of X is not smaller than a natural-value of N then an append of Y and Z is X.
+append-self-onto-final-cdr | If Y is a final-cdr of X then an append of X and Y is X.
+append-singleton-under-set-equiv | If Z is a cons of A and Nil, and Y is an append of X and Z then Y is set-equivalent-to a cons of A and X.
+append-under-iff | If Z is an append of X and Y, and Z is not Nil then X is a pair or Y is not Nil. If Z is an append of X and Y, and X is a pair or Y is not Nil then Z is not Nil.
+append-when-not-consp | If Z is an append of X and Y, and X is not a pair then Z is Y.
+associativity-of-append | If X is an append of A and B, and Y is an append of X and C, and Z is an append of B and C then Y is an append of A and Z.
+cancel-append-self-2-under-set-equiv | If Z is an append of X and Y then an append of X and Z is set-equivalent-to Z.
+cancel-append-self-under-set-equiv | If Y is an append of X and X then Y is set-equivalent-to X.
+car-of-append | If Z is an append of X and Y, and X is a pair then a head of Z is a head of X. If Z is an append of X and Y, and X is not a pair then a head of Z is a head of Y.
+car-of-append-when-consp | If Z is an append of X and Y, and X is a pair then a head of Z is a head of X.
+car-of-list-fix | If Y is a list-fix of X then a head of Y is a head of X.
+car-of-nthcdr | If Y is an nthcdr of I and X then a head of Y is an nth of I and X.
+car-of-repeat-increment | If Z is a sum of 1 and N, and Y is a repeat of Z and X, and N is natural then a head of Y is X.
+car-of-take | If Y is a take of N and X, and a natural-value of N is not smaller than 1 then a head of Y is a head of X.
+cdr-of-append | If Z is an append of X and Y, and U is a tail of X, and X is a pair then a tail of Z is an append of U and Y. If Z is an append of X and Y, and X is not a pair then a tail of Z is a tail of Y.
+cdr-of-append-when-consp | If Z is an append of X and Y, and U is a tail of X, and X is a pair then a tail of Z is an append of U and Y.
+cdr-of-list-fix | If Y is a list-fix of X then a tail of Y is a list-fix of a tail of X.
+cdr-of-repeat-increment | If Z is a sum of 1 and N, and Y is a repeat of Z and X, and N is natural then a tail of Y is a repeat of N and X.
+commutativity-2-of-append-under-set-equiv | If V is an append of Y and Z, and U is an append of X and V, and W is an append of X and Z then U is set-equivalent-to an append of Y and W.
+commutativity-2-of-append-under-set-equiv-corollary-1 | If U is a cons of X and Z, and Y is set-equivalent-to a cons of W and Z then a cons of W and U is set-equivalent-to a cons of X and Y.
+commutativity-2-of-append-under-set-equiv-corollary-2 | If U is a tail of Y, and Z is a cons of X and U, and V is a head of Y, and Y is a pair then a cons of V and Z is set-equivalent-to a cons of X and Y.
+commutativity-of-append-under-set-equiv | If Z is an append of X and Y then Z is set-equivalent-to an append of Y and X.
+cons-under-set-equiv-1 | If Z is a cons of X and Y then a cons of X and Z is set-equivalent-to Z.
+consp-of-append | If an append of X and Y is a pair then X is a pair or Y is a pair. If Z is an append of X and Y, and X is a pair or Y is a pair then Z is a pair.
+consp-of-last | If a last-pair of L is a pair then L is a pair. If L is a pair then a last-pair of L is a pair.
+consp-of-list-fix | If a list-fix of X is a pair then X is a pair. If X is a pair then a list-fix of X is a pair.
+consp-of-nthcdr | If an nthcdr of N and X is a pair then a natural-value of N is smaller than a length of X. If a natural-value of N is smaller than a length of X then an nthcdr of N and X is a pair.
+consp-of-remove | If Y is a cons of A and Nil, and a removal of A and X is a pair then X is not a subset of Y. If Y is a removal of A and X, and Z is a cons of A and Nil, and X is not a subset of Z then Y is a pair.
+consp-of-remove-duplicates-equal | If a deduplication of X is a pair then X is a pair. If X is a pair then a deduplication of X is a pair.
+consp-of-rev | If a reversal of X is a pair then X is a pair. If X is a pair then a reversal of X is a pair.
+consp-of-revappend | If a revappend of X and Y is a pair then X is a pair or Y is a pair. If Z is a revappend of X and Y, and X is a pair or Y is a pair then Z is a pair.
+consp-under-iff-when-true-listp | If X is a true-list, and X is a pair then X is not Nil. If X is a true-list, and X is not Nil then X is a pair.
+duplicity-in-of-remove-duplicates-equal | If Y is a deduplication of X, and A is a member of X then a duplicity of A and Y is 1. If Z is a deduplication of X, and Y is a duplicity of A and Z, and A is not a member of X then Y is 0.
+duplicity-of-append | If U is an append of X and Y, and Z is a duplicity of A and U, and V is a duplicity of A and X, and W is a duplicity of A and Y then Z is a sum of V and W.
+duplicity-of-cons | If Y is a cons of B and X, and Z is a duplicity of A and X, and A is B then a duplicity of A and Y is a sum of 1 and Z. If Z is a cons of B and X, and Y is a duplicity of A and Z, and A is not B then Y is a duplicity of A and X.
+duplicity-of-flatten-of-rev | If Z is a flattening of a reversal of X, and Y is a duplicity of A and Z, and U is a flattening of X then Y is a duplicity of A and U.
+duplicity-of-list-fix | If Z is a list-fix of X, and Y is a duplicity of A and Z then Y is a duplicity of A and X.
+duplicity-of-remove | If Y is a removal of B and X, and A is B then a duplicity of A and Y is 0. If Z is a removal of B and X, and Y is a duplicity of A and Z, and A is not B then Y is a duplicity of A and X.
+duplicity-of-rev | If Z is a reversal of X, and Y is a duplicity of A and Z then Y is a duplicity of A and X.
+duplicity-of-revappend | If U is a revappend of X and Y, and Z is a duplicity of A and U, and V is a duplicity of A and X, and W is a duplicity of A and Y then Z is a sum of V and W.
+duplicity-of-reverse | If Z is a reverse of X, and Y is a duplicity of A and Z then Y is a duplicity of A and X.
+duplicity-when-member-equal | If A is a member of X then 0 is smaller than a duplicity of A and X.
+duplicity-when-non-member-equal | If Y is a duplicity of A and X, and A is not a member of X then Y is 0.
+duplicity-when-not-consp | If Y is a duplicity of A and X, and X is not a pair then Y is 0.
+duplicity-zero-to-member-equal | If 0 is a duplicity of A and X then A is not a member of X. If Y is a duplicity of A and X, and A is not a member of X then 0 is Y.
+equal-final-cdr-nil | If a final-cdr of X is Nil then X is a true-list. If X is a true-list then a final-cdr of X is Nil.
+equal-of-append-and-append-same-arg2 | If an append of X and Y is an append of Z and Y then a list-fix of X is a list-fix of Z. If U is an append of X and Y, and a list-fix of X is a list-fix of Z then U is an append of Z and Y.
+equal-of-final-cdr-and-self | If X is a final-cdr of X then X is atomic. If X is atomic then X is a final-cdr of X.
+equal-of-list-fix-and-self | If X is a list-fix of X then X is a true-list. If X is a true-list then X is a list-fix of X.
+equal-of-rev-and-rev | If a reversal of X is a reversal of Y then a list-fix of X is a list-fix of Y. If a list-fix of X is a list-fix of Y then a reversal of X is a reversal of Y.
+equal-of-revappends-when-true-listps | If X is a true-list, and Z is a true-list, and a revappend of X and Y is a revappend of Z and Y then X is Z. If U is a revappend of X and Y, and X is a true-list, and Z is a true-list, and X is Z then U is a revappend of Z and Y.
+equal-of-take-and-list-fix | If a take of N and X is a list-fix of X then a length of X is a natural-value of N. If a length of X is a natural-value of N then a take of N and X is a list-fix of X.
+equal-when-append-same | If an append of X and Y is an append of X and Z then Y is Z. If U is an append of X and Y, and Y is Z then U is an append of X and Z.
+equal-when-revappend-same | If a revappend of X and Y is a revappend of X and Z then Y is Z. If U is a revappend of X and Y, and Y is Z then U is a revappend of X and Z.
+final-cdr-of-append | If Z is an append of X and Y then a final-cdr of Z is a final-cdr of Y.
+final-cdr-of-cons | If Y is a cons of A and X then a final-cdr of Y is a final-cdr of X.
+final-cdr-of-last | If Y is a last-pair of X then a final-cdr of Y is a final-cdr of X.
+final-cdr-of-nthcdr | If Y is an nthcdr of N and X, and a length of X is not smaller than a natural-value of N then a final-cdr of Y is a final-cdr of X. If a length of X is smaller than a natural-value of N then a final-cdr of an nthcdr of N and X is Nil.
+final-cdr-of-revappend | If Z is a revappend of X and Y then a final-cdr of Z is a final-cdr of Y.
+final-cdr-of-union-equal | If Z is an union of X and Y then a final-cdr of Z is a final-cdr of Y.
+final-cdr-of-update-nth | If Y is an update-nth of N and V and X, and a natural-value of N is smaller than a length of X then a final-cdr of Y is a final-cdr of X. If Y is an update-nth of N and V and X, and a natural-value of N is not smaller than a length of X then a final-cdr of Y is Nil.
+final-cdr-when-atom | If X is atomic then a final-cdr of X is X.
+final-cdr-when-true-listp | If X is a true-list then a final-cdr of X is Nil.
+flatten-of-append | If Z is an append of X and Y, and U is a flattening of X, and V is a flattening of Y then a flattening of Z is an append of U and V.
+flatten-of-cons | If Y is a cons of A and X, and Z is a flattening of X then a flattening of Y is an append of A and Z.
+flatten-of-list-fix | If Y is a list-fix of X then a flattening of Y is a flattening of X.
+flatten-when-not-consp | If Y is a flattening of X, and X is not a pair then Y is Nil.
+fourth-of-take | If Y is a take of N and X, and a natural-value of N is not smaller than 4 then a head of a tail of a tail of a tail of Y is a head of a tail of a tail of a tail of X.
+index-of-<-len | If K is a member of X then an index of K and X is smaller than a length of X.
+index-of-append-first | If U is an append of X and Y, and Z is an index of K and U, and an index of K and X is not Nil then Z is an index of K and X.
+index-of-append-neither | If Z is an append of X and Y, and an index of K and X is Nil, and an index of K and Y is Nil then an index of K and Z is Nil.
+index-of-append-second | If Z is an append of X and Y, and U is a length of X, and V is an index of K and Y, and an index of K and X is Nil, and an index of K and Y is not Nil then an index of K and Z is a sum of U and V.
+index-of-iff-member | If Y is an index of K and X, and Y is not Nil then K is a member of X. If K is a member of X then an index of K and X is not Nil.
+intersection$-commutes-under-set-equiv | If Z is an intersection of X and Y then Z is set-equivalent-to an intersection of Y and X.
+intersection$-of-cons-left | If Z is a cons of A and X, and U is an intersection of X and Y, and A is a member of Y then an intersection of Z and Y is a cons of A and U. If Z is a cons of A and X, and U is an intersection of Z and Y, and A is not a member of Y then U is an intersection of X and Y.
+intersection$-of-cons-right-under-set-equiv | If Z is a cons of A and Y, and U is an intersection of X and Y, and A is a member of X then an intersection of X and Z is set-equivalent-to a cons of A and U. If U is a cons of A and Y, and Z is an intersection of X and U, and A is not a member of X then Z is set-equivalent-to an intersection of X and Y.
+intersection$-when-atom-left | If Z is an intersection of X and Y, and X is atomic then Z is Nil.
+intersection$-when-atom-right | If Z is an intersection of X and Y, and Y is atomic then Z is Nil.
+last-of-append | If Z is an append of X and Y, and Y is a pair then a last-pair of Z is a last-pair of Y. If Z is an append of X and Y, and U is a last-pair of X, and Y is not a pair then a last-pair of Z is an append of U and Y.
+last-of-cons | If Y is a cons of A and X, and X is a pair then a last-pair of Y is a last-pair of X. If Y is a cons of A and X, and X is not a pair then a last-pair of Y is Y.
+last-of-list-fix | If Y is a list-fix of X then a last-pair of Y is a list-fix of a last-pair of X.
+last-of-rev | If Y is a head of X, and X is a pair then a last-pair of a reversal of X is a cons of Y and Nil. If Y is a reversal of X, and X is not a pair then a last-pair of Y is Nil.
+last-of-revappend | If Z is a revappend of X and Y, and Y is a pair then a last-pair of Z is a last-pair of Y. If Z is a revappend of X and Y, and U is a head of X, and X is a pair, and Y is not a pair then a last-pair of Z is a cons of U and Y. If Z is a revappend of X and Y, and Y is not a pair, and X is not a pair then a last-pair of Z is Y.
+last-when-atom | If X is atomic then a last-pair of X is X.
+last-when-atom-of-cdr | If a tail of X is atomic then a last-pair of X is X.
+len-of-append | If Z is an append of X and Y, and U is a length of X, and V is a length of Y then a length of Z is a sum of U and V.
+len-of-cons | If Y is a cons of A and X, and Z is a length of X then a length of Y is a sum of 1 and Z.
+len-of-intersection$-upper-bound | If Z is a length of X, and U is an intersection of X and Y then Z is not smaller than a length of U.
+len-of-last | If L is a pair then a length of a last-pair of L is 1. If X is a last-pair of L, and L is not a pair then a length of X is 0.
+len-of-list-fix | If Y is a list-fix of X then a length of Y is a length of X.
+len-of-nthcdr | If X is an nthcdr of N and L, and Y is a length of L, and Z is a natural-value of N then a length of X is a natural-value of a difference of Y and Z.
+len-of-rcons | If Y is a rcons of A and X, and Z is a length of X then a length of Y is a sum of 1 and Z.
+len-of-remove-duplicates-equal | If Y is a length of X then Y is not smaller than a length of a deduplication of X.
+len-of-remove-exact | If Y is a removal of A and X, and Z is a length of X, and U is a duplicity of A and X then a length of Y is a difference of Z and U.
+len-of-repeat | If Y is a repeat of N and X then a length of Y is a natural-value of N.
+len-of-rev | If Y is a reversal of X then a length of Y is a length of X.
+len-of-revappend | If Z is a revappend of X and Y, and U is a length of X, and V is a length of Y then a length of Z is a sum of U and V.
+len-of-take | If Y is a take of N and X then a length of Y is a natural-value of N.
+len-when-atom | If X is atomic then a length of X is 0.
+len-when-prefixp | If X is a prefix of Y then a length of Y is not smaller than a length of X.
+list-equiv-of-append-and-append | If an append of A and X is list-equivalent-to an append of A and Y then X is list-equivalent-to Y. If Z is an append of A and X, and X is list-equivalent-to Y then Z is list-equivalent-to an append of A and Y.
+list-equiv-of-cons-and-cons | If a cons of A and X is list-equivalent-to a cons of A and Y then X is list-equivalent-to Y. If Z is a cons of A and X, and X is list-equivalent-to Y then Z is list-equivalent-to a cons of A and Y.
+list-equiv-of-nil-left | If Nil is list-equivalent-to Y then Y is not a pair. If there is something Y, and Y is not a pair then Nil is list-equivalent-to Y.
+list-equiv-of-nil-right | If X is list-equivalent-to Nil then X is not a pair. If there is something X, and X is not a pair then X is list-equivalent-to Nil.
+list-equiv-of-rcons-and-rcons | If a rcons of A and X is list-equivalent-to a rcons of A and Y then X is list-equivalent-to Y. If Z is a rcons of A and X, and X is list-equivalent-to Y then Z is list-equivalent-to a rcons of A and Y.
+list-equiv-of-rev-and-rev | If a reversal of X is list-equivalent-to a reversal of Y then X is list-equivalent-to Y. If X is list-equivalent-to Y then a reversal of X is list-equivalent-to a reversal of Y.
+list-equiv-of-revappend-and-revappend | If a revappend of A and X is list-equivalent-to a revappend of A and Y then X is list-equivalent-to Y. If Z is a revappend of A and X, and X is list-equivalent-to Y then Z is list-equivalent-to a revappend of A and Y.
+list-equiv-when-atom-left | If X is atomic, and X is list-equivalent-to Y then Y is atomic. If X is atomic, and Y is atomic then X is list-equivalent-to Y.
+list-equiv-when-atom-right | If Y is atomic, and X is list-equivalent-to Y then X is atomic. If Y is atomic, and X is atomic then X is list-equivalent-to Y.
+list-fix-equal-forward-to-list-equiv | If a list-fix of X is a list-fix of Y then X is list-equivalent-to Y.
+list-fix-of-append | If Z is an append of X and Y, and U is a list-fix of Y then a list-fix of Z is an append of X and U.
+list-fix-of-cons | If Y is a cons of A and X, and Z is a list-fix of X then a list-fix of Y is a cons of A and Z.
+list-fix-of-revappend | If Z is a revappend of X and Y, and U is a list-fix of Y then a list-fix of Z is a revappend of X and U.
+list-fix-under-iff | If Y is a list-fix of X, and Y is not Nil then X is a pair. If X is a pair then a list-fix of X is not Nil.
+list-fix-under-list-equiv | If Y is a list-fix of X then Y is list-equivalent-to X.
+list-fix-when-len-zero | If a length of X is 0 then a list-fix of X is Nil.
+list-fix-when-not-consp | If Y is a list-fix of X, and X is not a pair then Y is Nil.
+list-fix-when-true-listp | If X is a true-list then a list-fix of X is X.
+listpos-complete | If Z is an nthcdr of N and Y, and X is a prefix of Z then a listpos of X and Y is not Nil and a natural-value of N is not smaller than a listpos of X and Y.
+listpos-lower-bound-weak | If Z is a listpos of X and Y then Z is not smaller than 0.
+listpos-of-list-fix-left | If Z is a list-fix of X, and U is a listpos of Z and Y then U is a listpos of X and Y.
+listpos-of-list-fix-right | If U is a list-fix of Y, and Z is a listpos of X and U then Z is a listpos of X and Y.
+listpos-under-iff | If Z is a listpos of X and Y, and Z is not Nil then X is a sublist of Y. If X is a sublist of Y then a listpos of X and Y is not Nil.
+listpos-upper-bound-strong-1 | If a listpos of X and Y is smaller than a length of Y then Y is a pair. If Z is a listpos of X and Y, and Y is a pair then Z is smaller than a length of Y.
+listpos-upper-bound-strong-2 | If Z is a length of Y, and U is a length of X, and X is a sublist of Y then a difference of Z and U is not smaller than a listpos of X and Y.
+listpos-upper-bound-weak | If Z is a length of Y, and U is a listpos of X and Y then Z is not smaller than U.
+listpos-when-atom-left | If Z is a listpos of X and Y, and X is atomic then Z is 0.
+listpos-when-atom-right | If Y is atomic, and X is atomic then a listpos of X and Y is 0. If Z is a listpos of X and Y, and Y is atomic, and X is not atomic then Z is Nil.
+lower-bound-of-len-when-sublistp | If X is a sublist of Y then a length of Y is not smaller than a length of X.
+member-equal-update-nth | If Y is an update-nth of N and X and L then X is a member of Y.
+member-of-append | If Z is an append of X and Y, and A is a member of Z then A is a member of X or A is a member of Y. If there is something A, and Z is an append of X and Y, and A is a member of X or A is a member of Y then A is a member of Z.
+member-of-car-of-last | If a head of a last-pair of X is a member of X then X is a pair. If X is a pair then a head of a last-pair of X is a member of X.
+member-of-intersection$ | If Z is an intersection of X and Y, and A is a member of Z then A is a member of X and A is a member of Y. If Z is an intersection of X and Y, and A is a member of X, and A is a member of Y then A is a member of Z.
+member-of-intersection-equal | If Z is an intersection of X and Y, and A is a member of Z then A is a member of X and A is a member of Y. If Z is an intersection of X and Y, and A is a member of X, and A is a member of Y then A is a member of Z.
+member-of-nth | If a natural-value of N is smaller than a length of X then an nth of N and X is a member of X.
+member-of-remove | If Y is a removal of B and X, and A is a member of Y then A is a member of X and A is not B. If Y is a removal of B and X, and A is a member of X, and A is not B then A is a member of Y.
+member-of-remove-duplicates-equal | If A is a member of a deduplication of X then A is a member of X. If A is a member of X then A is a member of a deduplication of X.
+member-of-revappend | If Y is a revappend of A and B, and X is a member of Y then X is a member of A or X is a member of B. If there is something X, and Y is a revappend of A and B, and X is a member of A or X is a member of B then X is a member of Y.
+member-of-set-difference-equal | If Z is a set-difference of X and Y, and A is a member of Z then A is a member of X and A is not a member of Y. If Z is a set-difference of X and Y, and A is a member of X, and A is not a member of Y then A is a member of Z.
+member-self | If there is something X then X is not a member of X.
+member-when-atom | If there is something A, and X is atomic then A is not a member of X.
+natp-of-listpos | If a listpos of X and Y is natural then X is a sublist of Y. If X is a sublist of Y then a listpos of X and Y is natural.
+natpp-of-index-of | If an index of K and X is natural then K is a member of X. If K is a member of X then an index of K and X is natural.
+no-duplicatesp-equal-of-append-of-append | If an append of X and Y is duplicate-free then an append of Y and X is duplicate-free. If an append of Y and X is duplicate-free then an append of X and Y is duplicate-free.
+no-duplicatesp-equal-of-append-of-rev-1 | If Z is a reversal of X, and an append of Z and Y is duplicate-free then an append of X and Y is duplicate-free. If Z is a reversal of X, and an append of X and Y is duplicate-free then an append of Z and Y is duplicate-free.
+no-duplicatesp-equal-of-append-of-rev-2 | If Z is a reversal of Y, and an append of X and Z is duplicate-free then an append of X and Y is duplicate-free. If Z is a reversal of Y, and an append of X and Y is duplicate-free then an append of X and Z is duplicate-free.
+no-duplicatesp-equal-of-flatten-of-rev | If a flattening of a reversal of X is duplicate-free then a flattening of X is duplicate-free. If a flattening of X is duplicate-free then a flattening of a reversal of X is duplicate-free.
+no-duplicatesp-equal-of-remove-duplicates-equal | If Y is a deduplication of X then Y is duplicate-free.
+no-duplicatesp-equal-of-rev | If a reversal of X is duplicate-free then X is duplicate-free. If X is duplicate-free then a reversal of X is duplicate-free.
+no-duplicatesp-equal-when-atom | If X is atomic then X is duplicate-free.
+no-duplicatesp-equal-when-high-duplicity | If 1 is smaller than a duplicity of A and X then X is not duplicate-free.
+no-duplicatesp-of-set-difference-equal | If Z is a set-difference of X and Y, and X is duplicate-free then Z is duplicate-free.
+no-duplicatesp-of-take | If X is a take of N and L, and L is duplicate-free, and a length of L is not smaller than a natural-value of N then X is duplicate-free.
+not-suffixp-of-cons-left | If there is something B, and X is a cons of C and A, and A is not a suffix of B then X is not a suffix of B.
+nth-of-append | If Z is an append of X and Y, and a natural-value of N is smaller than a length of X then an nth of N and Z is an nth of N and X. If U is an append of X and Y, and Z is an nth of N and U, and W is a length of X, and V is a difference of N and W, and a natural-value of N is not smaller than a length of X then Z is an nth of V and Y.
+nth-of-index-when-member | If Y is an index of K and X, and K is a member of X then an nth of Y and X is K.
+nth-of-list-fix | If Z is a list-fix of X, and Y is an nth of N and Z then Y is an nth of N and X.
+nth-of-nfix | If Y is a natural-value of N, and Z is an nth of Y and X then Z is an nth of N and X.
+nth-of-nil | If X is an nth of N and Nil then X is Nil.
+nth-of-nthcdr | If Z is an nthcdr of M and X, and Y is an nth of N and Z, and V is a natural-value of N, and W is a natural-value of M, and U is a sum of V and W then Y is an nth of U and X.
+nth-of-repeat | If X is a repeat of M and A, and a natural-value of N is smaller than a natural-value of M then an nth of N and X is A. If Y is a repeat of M and A, and X is an nth of N and Y, and a natural-value of N is not smaller than a natural-value of M then X is Nil.
+nth-of-rev | If Y is a reversal of X, and U is a length of X, and W is a natural-value of N, and V is a sum of 1 and W, and Z is a difference of U and V, and a natural-value of N is smaller than a length of X then an nth of N and Y is an nth of Z and X. If Z is a reversal of X, and Y is an nth of N and Z, and a natural-value of N is not smaller than a length of X then Y is Nil.
+nth-of-revappend | If Z is a revappend of X and Y, and V is a length of X, and P is a natural-value of N, and W is a sum of 1 and P, and U is a difference of V and W, and a natural-value of N is smaller than a length of X then an nth of N and Z is an nth of U and X. If U is a revappend of X and Y, and Z is an nth of N and U, and W is a length of X, and V is a difference of N and W, and a natural-value of N is not smaller than a length of X then Z is an nth of V and Y.
+nth-of-reverse | If Y is a reverse of X, and U is a length of X, and W is a natural-value of N, and V is a sum of 1 and W, and Z is a difference of U and V, and a natural-value of N is smaller than a length of X then an nth of N and Y is an nth of Z and X. If Z is a reverse of X, and Y is an nth of N and Z, and a natural-value of N is not smaller than a length of X then Y is Nil.
+nth-of-take | If X is a take of N and L, and a natural-value of I is smaller than a natural-value of N then an nth of I and X is an nth of I and L. If Y is a take of N and L, and X is an nth of I and Y, and a natural-value of I is not smaller than a natural-value of N then X is Nil.
+nth-of-update-nth-diff | If W is an update-nth of Z and V and X, and U is an nth of Y and W, and a natural-value of Y is not a natural-value of Z then U is an nth of Y and X.
+nth-of-update-nth-same | If Y is an update-nth of N and V and X then an nth of N and Y is V.
+nth-update-nth | If Y is an update-nth of N and X and L, and a natural-value of M is a natural-value of N then an nth of M and Y is X. If Z is an update-nth of N and X and L, and Y is an nth of M and Z, and a natural-value of M is not a natural-value of N then Y is an nth of M and L.
+nth-when-atom | If Y is an nth of N and X, and X is atomic then Y is Nil.
+nth-when-too-large | If Y is an nth of N and X, and a natural-value of N is not smaller than a length of X then Y is Nil.
+nth-when-too-large-cheap | If Y is an nth of N and X, and a natural-value of N is not smaller than a length of X then Y is Nil.
+nthcdr-before-update-nth | If W is an update-nth of Y and U and X, and V is an nthcdr of Z and W, and Q is a natural-value of Y, and R is a natural-value of Z, and P is a difference of Q and R, and S is an nthcdr of Z and X, and a natural-value of Y is smaller than a length of X, and a natural-value of Y is not smaller than a natural-value of Z then V is an update-nth of P and U and S.
+nthcdr-of-cdr | If Z is a tail of X, and Y is an nthcdr of I and Z then Y is a tail of an nthcdr of I and X.
+nthcdr-of-list-fix | If Z is a list-fix of X, and Y is an nthcdr of N and Z then Y is a list-fix of an nthcdr of N and X.
+nthcdr-of-nthcdr | If Z is an nthcdr of B and X, and Y is an nthcdr of A and Z, and V is a natural-value of A, and W is a natural-value of B, and U is a sum of V and W then Y is an nthcdr of U and X.
+nthcdr-of-repeat | If Y is a repeat of K and A, and X is an nthcdr of N and Y, and U is a natural-value of K, and V is a natural-value of N, and Z is a difference of U and V, and a natural-value of K is not smaller than a natural-value of N then X is a repeat of Z and A. If X is a repeat of K and A, and a natural-value of K is smaller than a natural-value of N then an nthcdr of N and X is Nil.
+nthcdr-of-update-nth | If V is an update-nth of Z and U and X, and a natural-value of Z is smaller than a natural-value of Y then an nthcdr of Y and V is an nthcdr of Y and X. If W is an update-nth of Z and U and X, and V is an nthcdr of Y and W, and Q is a natural-value of Z, and R is a natural-value of Y, and P is a difference of Q and R, and S is an nthcdr of Y and X, and a natural-value of Z is not smaller than a natural-value of Y then V is an update-nth of P and U and S.
+nthcdr-past-update-nth | If V is an update-nth of Y and U and X, and a natural-value of Y is smaller than a length of X, and a natural-value of Y is smaller than a natural-value of Z then an nthcdr of Z and V is an nthcdr of Z and X.
+nthcdr-when-less-than-len-under-iff | If a natural-value of N is smaller than a length of X then an nthcdr of N and X is not Nil.
+prefixp-append-append | If U is an append of X and Y, and an append of X and Z is a prefix of U then Z is a prefix of Y. If U is an append of X and Z, and V is an append of X and Y, and Z is a prefix of Y then U is a prefix of V.
+prefixp-nthcdr-nthcdr | If Z is an nthcdr of N and X, and a take of N and Y is a take of N and X, and an nthcdr of N and Y is a prefix of Z, and a length of X is not smaller than N then Y is a prefix of X. If Z is an nthcdr of N and X, and a take of N and Y is a take of N and X, and Y is a prefix of X, and a length of X is not smaller than N then an nthcdr of N and Y is a prefix of Z.
+prefixp-of-append-arg1 | If U is a length of X, and V is a length of Y, and W is an nthcdr of U and Z, and an append of X and Y is a prefix of Z then a length of Z is not smaller than a sum of U and V and a list-fix of X is a take of U and Z and Y is a prefix of W. If U is a length of X, and V is an nthcdr of U and Z, and W is a length of Y, and a list-fix of X is a take of U and Z, and Y is a prefix of V, and a length of Z is not smaller than a sum of U and W then an append of X and Y is a prefix of Z.
+prefixp-of-cons-left | If a cons of A and X is a prefix of Y then Y is a pair and A is a head of Y and X is a prefix of a tail of Y. If Y is a pair, and a head of Y is A, and X is a prefix of a tail of Y then a cons of A and X is a prefix of Y.
+prefixp-of-cons-right | If Z is a cons of A and Y, and X is a prefix of Z, and X is a pair then a head of X is A and a tail of X is a prefix of Y. If Z is a cons of A and Y, and a head of X is A, and a tail of X is a prefix of Y, and X is a pair then X is a prefix of Z. If there is something X, and Z is a cons of A and Y, and X is not a pair then X is a prefix of Z.
+prefixp-of-list-fix-left | If a list-fix of X is a prefix of Y then X is a prefix of Y. If X is a prefix of Y then a list-fix of X is a prefix of Y.
+prefixp-of-list-fix-right | If X is a prefix of a list-fix of Y then X is a prefix of Y. If X is a prefix of Y then X is a prefix of a list-fix of Y.
+prefixp-of-take | If a take of N and X is a prefix of X then a length of X is not smaller than a natural-value of N. If Y is a take of N and X, and a length of X is not smaller than a natural-value of N then Y is a prefix of X.
+prefixp-one-way-or-another | If X is a prefix of Z, and Y is a prefix of Z, and X is not a prefix of Y then Y is a prefix of X.
+prefixp-reflexive | If there is something X then X is a prefix of X.
+prefixp-when-equal-lengths | If X is a prefix of Y, and a length of X is not smaller than a length of Y then X is list-equivalent-to Y. If X is list-equivalent-to Y, and a length of X is not smaller than a length of Y then X is a prefix of Y.
+prefixp-when-not-consp-left | If there is something X, and there is something Y, and X is not a pair then X is a prefix of Y.
+prefixp-when-not-consp-right | If X is a prefix of Y, and Y is not a pair then X is not a pair. If there is something Y, and there is something X, and Y is not a pair, and X is not a pair then X is a prefix of Y.
+prefixp-when-prefixp | If Y is a prefix of X, and X is a prefix of Y then X is list-equivalent-to Y. If Y is a prefix of X, and X is list-equivalent-to Y then X is a prefix of Y.
+rcons-of-append | If U is an append of X and Y, and Z is a rcons of A and U, and V is a rcons of A and Y then Z is an append of X and V.
+rcons-of-list-fix | If Z is a list-fix of X, and Y is a rcons of A and Z then Y is a rcons of A and X.
+rcons-under-set-equiv | If Y is a rcons of A and X then Y is set-equivalent-to a cons of A and X.
+remove-duplicates-equal-of-cons | If A is a member of X then a deduplication of a cons of A and X is a deduplication of X. If Y is a cons of A and X, and Z is a deduplication of X, and A is not a member of X then a deduplication of Y is a cons of A and Z.
+remove-duplicates-equal-of-list-fix | If Y is a list-fix of X then a deduplication of Y is a deduplication of X.
+remove-duplicates-equal-of-remove | If Y is a removal of A and X, and Z is a deduplication of X then a deduplication of Y is a removal of A and Z.
+remove-duplicates-equal-under-set-equiv | If Y is a deduplication of X then Y is set-equivalent-to X.
+remove-duplicates-equal-when-atom | If X is atomic then a deduplication of X is Nil.
+remove-is-commutative | If Z is a removal of A and X, and Y is a removal of B and Z, and U is a removal of B and X then Y is a removal of A and U.
+remove-is-idempotent | If Y is a removal of A and X then a removal of A and Y is Y.
+remove-of-append | If U is an append of X and Y, and Z is a removal of A and U, and V is a removal of A and X, and W is a removal of A and Y then Z is an append of V and W.
+remove-of-cons | If Y is a cons of B and X, and A is B then a removal of A and Y is a removal of A and X. If Z is a cons of B and X, and Y is a removal of A and Z, and U is a removal of A and X, and A is not B then Y is a cons of B and U.
+remove-of-intersection-equal | If U is an intersection of X and Y, and Z is a removal of A and U, and V is a removal of A and X, and W is a removal of A and Y then Z is an intersection of V and W.
+remove-of-rev | If Z is a reversal of X, and Y is a removal of A and Z then Y is a reversal of a removal of A and X.
+remove-of-revappend | If U is a revappend of X and Y, and Z is a removal of A and U, and V is a removal of A and X, and W is a removal of A and Y then Z is a revappend of V and W.
+remove-of-set-difference-equal | If U is a set-difference of X and Y, and Z is a removal of A and U, and V is a removal of A and X then Z is a set-difference of V and Y.
+remove-of-union-equal | If U is an union of X and Y, and Z is a removal of A and U, and V is a removal of A and X, and W is a removal of A and Y then Z is an union of V and W.
+remove-under-iff | If Y is a cons of A and Nil, and Z is a removal of A and X, and Z is not Nil then X is not a subset of Y. If Y is a removal of A and X, and Z is a cons of A and Nil, and X is not a subset of Z then Y is not Nil.
+remove-when-atom | If Y is a removal of A and X, and X is atomic then Y is Nil.
+remove-when-non-member | If Y is a removal of A and X, and A is not a member of X then Y is a list-fix of X.
+repeat-1 | If X is a repeat of 1 and A then X is a cons of A and Nil.
+repeat-of-nfix | If Y is a natural-value of N, and Z is a repeat of Y and X then Z is a repeat of N and X.
+rev-of-append | If Z is an append of X and Y, and U is a reversal of Y, and V is a reversal of X then a reversal of Z is an append of U and V.
+rev-of-cons | If Y is a cons of A and X, and Z is a reversal of X, and U is a cons of A and Nil then a reversal of Y is an append of Z and U.
+rev-of-list-fix | If Y is a list-fix of X then a reversal of Y is a reversal of X.
+rev-of-rcons | If Y is a rcons of A and X, and Z is a reversal of X then a reversal of Y is a cons of A and Z.
+rev-of-repeat | If X is a repeat of N and A then a reversal of X is X.
+rev-of-rev | If Y is a reversal of X then a reversal of Y is a list-fix of X.
+rev-under-iff | If Y is a reversal of X, and Y is not Nil then X is a pair. If X is a pair then a reversal of X is not Nil.
+rev-under-set-equiv | If Y is a reversal of X then Y is set-equivalent-to X.
+rev-when-not-consp | If Y is a reversal of X, and X is not a pair then Y is Nil.
+revappend-of-rcons | If Z is a rcons of A and X, and U is a revappend of Z and Y, and V is a revappend of X and Y then U is a cons of A and V.
+revappend-removal | If Z is a revappend of X and Y, and U is a reversal of X then Z is an append of U and Y.
+revappend-under-set-equiv | If Z is a revappend of X and Y then Z is set-equivalent-to an append of X and Y.
+reverse-removal | If X is a true-list then a reverse of X is a reversal of X.
+reverse-under-set-equiv | If Y is a reverse of X then Y is set-equivalent-to X.
+second-of-take | If Y is a take of N and X, and a natural-value of N is not smaller than 2 then a head of a tail of Y is a head of a tail of X.
+set-difference-equal-of-cons | If Z is a cons of A and X, and A is a member of Y then a set-difference of Z and Y is a set-difference of X and Y. If Z is a cons of A and X, and U is a set-difference of Z and Y, and V is a set-difference of X and Y, and A is not a member of Y then U is a cons of A and V.
+set-difference-equal-of-self | If Y is a set-difference of X and X then Y is Nil.
+set-difference-equal-when-atom | If Z is a set-difference of X and Y, and X is atomic then Z is Nil.
+set-difference-equal-when-subsetp-equal | If X is a subset of Y then a set-difference of X and Y is Nil.
+set-equiv-asym | If X is set-equivalent-to Y then Y is set-equivalent-to X. If Y is set-equivalent-to X then X is set-equivalent-to Y.
+set-equiv-of-cons-self | If X is set-equivalent-to a cons of A and X then A is a member of X. If A is a member of X then X is set-equivalent-to a cons of A and X.
+set-equiv-of-nil | If Nil is set-equivalent-to X then X is atomic. If X is atomic then Nil is set-equivalent-to X.
+set-equiv-with-append-other-left | If X is set-equivalent-to an append of Y and X then Y is a subset of X. If Y is a subset of X then X is set-equivalent-to an append of Y and X.
+set-equiv-with-append-other-right | If X is set-equivalent-to an append of X and Y then Y is a subset of X. If Y is a subset of X then X is set-equivalent-to an append of X and Y.
+sublistp-complete | If Z is an nthcdr of N and Y, and X is a prefix of Z then X is a sublist of Y.
+sublistp-of-cons-right | If Z is a cons of A and Y, and X is a sublist of Z then X is a prefix of Z or X is a sublist of Y. If there is something X, and Z is a cons of A and Y, and X is a prefix of Z or X is a sublist of Y then X is a sublist of Z.
+sublistp-of-list-fix-left | If a list-fix of X is a sublist of Y then X is a sublist of Y. If X is a sublist of Y then a list-fix of X is a sublist of Y.
+sublistp-of-list-fix-right | If X is a sublist of a list-fix of Y then X is a sublist of Y. If X is a sublist of Y then X is a sublist of a list-fix of Y.
+sublistp-sound | If U is a listpos of X and Y, and Z is an nthcdr of U and Y, and X is a sublist of Y then X is a prefix of Z.
+sublistp-when-atom-left | If there is something Y, and X is atomic then X is a sublist of Y.
+sublistp-when-atom-right | If Y is atomic, and X is a sublist of Y then X is atomic. If Y is atomic, and X is atomic then X is a sublist of Y.
+sublistp-when-prefixp | If X is a prefix of Y then X is a sublist of Y.
+subsetp-append1 | If an append of A and B is a subset of C then A is a subset of C and B is a subset of C. If A is a subset of C, and B is a subset of C then an append of A and B is a subset of C.
+subsetp-append2 | If X is an append of A and B then A is a subset of X.
+subsetp-append3 | If X is an append of A and B then B is a subset of X.
+subsetp-car-member | If X is a subset of Y, and X is a pair then a head of X is a member of Y.
+subsetp-cons-2 | If Y is a cons of X and B, and A is a subset of B then A is a subset of Y.
+subsetp-cons-same | If Y is a cons of X and A, and Z is a cons of X and B, and A is a subset of B then Y is a subset of Z.
+subsetp-equal-of-intersection$-1 | If Z is an intersection of X and Y then Z is a subset of X.
+subsetp-equal-of-intersection$-2 | If Z is an intersection of X and Y then Z is a subset of Y.
+subsetp-implies-subsetp-cdr | If X is a subset of Y then a tail of X is a subset of Y.
+subsetp-intersection-equal | If X is an intersection of B and C, and A is a subset of X then A is a subset of B and A is a subset of C. If X is an intersection of B and C, and A is a subset of B, and A is a subset of C then A is a subset of X.
+subsetp-member | If A is a member of X, and X is a subset of Y then A is a member of Y.
+subsetp-nil | If there is something X then Nil is a subset of X.
+subsetp-of-append-when-subset-of-either | If there is something A, and X is an append of B and C, and A is a subset of B or A is a subset of C then A is a subset of X.
+subsetp-of-cdr | If Y is a tail of X then Y is a subset of X.
+subsetp-of-cons | If a cons of A and X is a subset of Y then A is a member of Y and X is a subset of Y. If A is a member of Y, and X is a subset of Y then a cons of A and X is a subset of Y.
+subsetp-of-last | If Y is a last-pair of X then Y is a subset of X.
+subsetp-of-remove1 | If Z is a removal of A and Y, and X is a subset of Z then X is a subset of Y and A is not a member of X. If Z is a removal of A and Y, and X is a subset of Y, and A is not a member of X then X is a subset of Z.
+subsetp-of-remove2 | If Z is a removal of A and X, and X is a subset of Y then Z is a subset of Y.
+subsetp-of-take | If a take of N and X is a subset of X then a length of X is not smaller than a natural-value of N or Nil is a member of X. If Y is a take of N and X, and a length of X is not smaller than a natural-value of N or Nil is a member of X then Y is a subset of X.
+subsetp-refl | If there is something X then X is a subset of X.
+subsetp-trans | If X is a subset of Y, and Y is a subset of Z then X is a subset of Z.
+subsetp-trans2 | If Y is a subset of Z, and X is a subset of Y then X is a subset of Z.
+subsetp-when-atom-left | If there is something Y, and X is atomic then X is a subset of Y.
+subsetp-when-atom-right | If Y is atomic, and X is a subset of Y then X is atomic. If Y is atomic, and X is atomic then X is a subset of Y.
+subsetp-when-prefixp | If X is a prefix of Y then X is a subset of Y.
+suffixp-equals-nthcdr | If U is a length of Y, and V is a length of X, and Z is a difference of U and V, and X is a suffix of Y then X is an nthcdr of Z and Y. If U is a length of Y, and V is a length of X, and Z is a difference of U and V, and X is an nthcdr of Z and Y then X is a suffix of Y.
+suffixp-of-cons-right | If X is a cons of C and B, and A is a suffix of X then A is a cons of C and B or A is a suffix of B. If there is something A, and X is a cons of C and B, and A is X or A is a suffix of B then A is a suffix of X.
+suffixp-of-self | If there is something X then X is a suffix of X.
+suffixp-transitive | If B is a suffix of C, and A is a suffix of B then A is a suffix of C.
+take-after-update-nth | If V is an update-nth of Y and U and X, and W is a take of Z and X, and a natural-value of Y is smaller than a natural-value of Z then a take of Z and V is an update-nth of Y and U and W.
+take-before-update-nth | If V is an update-nth of Y and U and X, and W is a take of Z and V, and a natural-value of Y is not smaller than a natural-value of Z then W is a take of Z and X.
+take-fewer-of-take-more | If Y is a take of B and X, and Z is a take of A and Y, and a natural-value of B is not smaller than a natural-value of A then Z is a take of A and X.
+take-more-of-take-fewer | If Y is a take of B and X, and V is a natural-value of A, and W is a natural-value of B, and U is a difference of V and W, and Z is a repeat of U and Nil, and a natural-value of B is smaller than a natural-value of A then a take of A and Y is an append of Y and Z.
+take-of-1 | If Y is a take of 1 and X, and Z is a head of X then Y is a cons of Z and Nil.
+take-of-append | If Z is an append of X and Y, and a natural-value of N is smaller than a length of X then a take of N and Z is a take of N and X. If U is an append of X and Y, and Z is a take of N and U, and P is a length of X, and W is a difference of N and P, and V is a take of W and Y, and a natural-value of N is not smaller than a length of X then Z is an append of X and V.
+take-of-len | If Y is a length of X then a take of Y and X is a list-fix of X.
+take-of-len-free | If a length of X is Y then a take of Y and X is a list-fix of X.
+take-of-repeat | If Y is a repeat of K and A, and X is a take of N and Y, and a natural-value of K is not smaller than a natural-value of N then X is a repeat of N and A. If X is a repeat of K and A, and U is a natural-value of N, and V is a natural-value of K, and Z is a difference of U and V, and Y is a repeat of Z and Nil, and a natural-value of K is smaller than a natural-value of N then a take of N and X is an append of X and Y.
+take-of-take-same | If Y is a take of A and X then a take of A and Y is Y.
+take-of-take-split | If Z is a take of B and X, and Y is a take of A and Z, and a natural-value of B is not smaller than a natural-value of A then Y is a take of A and X. If Y is a take of B and X, and V is a natural-value of A, and W is a natural-value of B, and U is a difference of V and W, and Z is a repeat of U and Nil, and a natural-value of B is smaller than a natural-value of A then a take of A and Y is an append of Y and Z.
+take-of-too-many | If Y is a take of N and X, and V is a natural-value of N, and W is a length of X, and U is a difference of V and W, and Z is a repeat of U and Nil, and a natural-value of N is not smaller than a length of X then Y is an append of X and Z.
+take-of-update-nth | If W is an update-nth of Z and U and X, and V is a take of Y and W, and a natural-value of Z is not smaller than a natural-value of Y then V is a take of Y and X. If V is an update-nth of Z and U and X, and W is a take of Y and X, and a natural-value of Z is smaller than a natural-value of Y then a take of Y and V is an update-nth of Z and U and W.
+take-of-zero | If Y is a take of 0 and X then Y is Nil.
+take-when-atom | If Y is a take of N and X, and X is atomic then Y is a repeat of N and Nil.
+take-when-prefixp | If Z is a length of X, and X is a prefix of Y then a take of Z and Y is a list-fix of X.
+third-of-take | If Y is a take of N and X, and a natural-value of N is not smaller than 3 then a head of a tail of a tail of Y is a head of a tail of a tail of X.
+true-listp-of-append | If an append of X and Y is a true-list then Y is a true-list. If Z is an append of X and Y, and Y is a true-list then Z is a true-list.
+true-listp-of-cons | If a cons of A and X is a true-list then X is a true-list. If Y is a cons of A and X, and X is a true-list then Y is a true-list.
+true-listp-of-flatten | If Y is a flattening of X then Y is a true-list.
+true-listp-of-last | If a last-pair of L is a true-list then L is a true-list. If L is a true-list then a last-pair of L is a true-list.
+true-listp-of-list-fix | If Y is a list-fix of X then Y is a true-list.
+true-listp-of-nthcdr | If an nthcdr of N and X is a true-list then X is a true-list or a length of X is smaller than a natural-value of N. If Y is an nthcdr of N and X, and X is a true-list or a length of X is smaller than a natural-value of N then Y is a true-list.
+true-listp-of-revappend | If a revappend of X and Y is a true-list then Y is a true-list. If Z is a revappend of X and Y, and Y is a true-list then Z is a true-list.
+true-listp-of-union-equal | If an union of X and Y is a true-list then Y is a true-list. If Z is an union of X and Y, and Y is a true-list then Z is a true-list.
+true-listp-of-union-equal-type | If Z is an union of X and Y, and Y is a true-list then Z is a true-list.
+true-listp-of-update-nth | If an update-nth of N and V and X is a true-list then a natural-value of N is not smaller than a length of X or X is a true-list. If Y is an update-nth of N and V and X, and a natural-value of N is not smaller than a length of X or X is a true-list then Y is a true-list.
+true-listp-when-atom | If X is atomic, and X is a true-list then X is Nil. If X is atomic, and X is Nil then X is a true-list.
+type-of-rcons | If Y is a rcons of A and X then Y is a pair and Y is a true-list.
+union-equal-under-set-equiv | If X is an union of A and B then X is set-equivalent-to an append of A and B.
+update-nth-append | If Y is an append of A and B, and X is an update-nth of N and V and Y, and Z is an update-nth of N and V and A, and a natural-value of N is smaller than a length of A then X is an append of Z and B. If Y is an append of A and B, and X is an update-nth of N and V and Y, and W is a length of A, and U is a difference of N and W, and Z is an update-nth of U and V and B, and a natural-value of N is not smaller than a length of A then X is an append of A and Z.
+update-nth-of-nth | If Y is an nth of N and X, and a natural-value of N is smaller than a length of X then an update-nth of N and Y and X is X.
+update-nth-of-nth-free | If an nth of N and X is Y, and a natural-value of N is smaller than a length of X then an update-nth of N and Y and X is X.
+update-nth-of-update-nth-diff | If P is an update-nth of Z and V and X, and W is an update-nth of Y and U and P, and Q is an update-nth of Y and U and X, and a natural-value of Y is not a natural-value of Z then W is an update-nth of Z and V and Q.
+update-nth-of-update-nth-same | If U is an update-nth of N and Z and X, and V is an update-nth of N and Y and U then V is an update-nth of N and Y and X.
+update-nth-when-atom | If Y is an update-nth of N and V and X, and Z is a repeat of N and Nil, and U is a cons of V and Nil, and X is atomic then Y is an append of Z and U.
+upper-bound-of-len-of-last | If Y is a last-pair of X then a length of Y is smaller than 2.
+upper-bound-of-len-of-remove-strong | If A is a member of X then a length of a removal of A and X is smaller than a length of X.
+upper-bound-of-len-of-remove-weak | If Y is a length of X, and Z is a removal of A and X then Y is not smaller than a length of Z.

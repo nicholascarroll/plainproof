@@ -1,0 +1,46 @@
+# One case per construct.  name | sentence | expected statement, or REJECTED reason.
+# The expected statements are written by hand from Attempto's documented reading,
+# not copied from the compiler: a mismatch is a finding about one or the other.
+type-noun | If X is a true-list then X is a true-list. | (implies (true-listp x1) (true-listp x1))
+adjective | If X is atomic then X is atomic. | (implies (atom x1) (atom x1))
+result-1 | If Y is a length of X then Y is natural. | (natp (len x2))
+result-2 | If Z is an append of X and Y then Z is a true-list. | (true-listp (append x2 x3))
+result-3 | If Z is an update-nth of N and V and X then a length of Z is a length of X. | (equal (len (update-nth x2 x3 x4)) (len x4))
+nested-unary | If Y is a reversal of X then a length of a reversal of Y is a length of X. | (equal (len (rev (rev x2))) (len x2))
+unary-of-binary | If X is a true-list then a length of an append of X and Nil is a length of X. | (implies (true-listp x1) (equal (len (append x1 nil)) (len x1)))
+constant | If Y is an append of X and Nil then Y is a list-fix of X. | (equal (append x2 nil) (true-list-fix x2))
+number | If X is atomic then a length of X is 0. | (implies (atom x1) (equal (len x1) 0))
+negation | If Z is an append of X and Y, and X is not a pair then Z is Y. | (implies (not (consp x2)) (equal (append x2 x3) x3))
+relation-noun | If A is a member of X, and Z is an append of X and Y then A is a member of Z. | (implies (member-equal x1 x2) (member-equal x1 (append x2 x4)))
+negated-relation | If A is a member of X, and Y is a true-list, and A is not a member of Y then X is not a subset of Y. | (implies (and (member-equal x1 x2) (true-listp x3) (not (member-equal x1 x3))) (not (subsetp-equal x2 x3)))
+# Writing this case by hand first fell into the inside-'not' trap: "and A is not a member
+# of Y", with Y new, means A is a member of nothing.  The compiler refused it.
+trap-inside-not-2 | If A is a member of X, and A is not a member of Y then X is not a subset of Y. | REJECTED individual_introduced_inside_not
+relation-adjective | If Z is an append of X and Y, and W is an append of Y and X then Z is set-equivalent-to W. | (set-equiv (append x2 x3) (append x3 x2))
+comparison | If Y is a length of X, and X is a pair then 0 is smaller than Y. | (implies (consp x2) (< 0 (len x2)))
+negated-comparison | If there is something N, and there is something M, and N is not smaller than M then M is smaller than N or M is N. | (implies (not (< x1 x2)) (or (< x2 x1) (equal x2 x1)))
+or-conclusion | If Z is an append of X and Y, and Z is a pair then X is a pair or Y is a pair. | (implies (consp (append x2 x3)) (or (consp x2) (consp x3)))
+or-antecedent | If Z is an append of X and Y, and X is a pair or Y is a pair then Z is a pair. | (implies (or (consp x2) (consp x3)) (consp (append x2 x3)))
+two-sentences | If X is a pair then a reversal of X is a pair. If Y is a reversal of X, and Y is a pair then X is a pair. | (and (implies (consp x1) (consp (rev x1))) (implies (consp (rev x2)) (consp x2)))
+there-is | If there is something X then a length of a reversal of X is a length of X. | (equal (len (rev x1)) (len x1))
+chain | If Z is an append of X and Y, and U is a length of X, and V is a length of Y then a length of Z is a sum of U and V. | (equal (len (append x2 x3)) (+ (len x2) (len x3)))
+equality-kept | If Y is a pair, and Y is X then X is a pair. | (implies (and (consp x1) (equal x1 x2)) (consp x2))
+# Traps: each must be refused.
+trap-bracketing | If Z is an append of X and Y then a length of Z is a sum of a length of X and a length of Y. | REJECTED wrong_number_of_arguments
+trap-after-then | If X is not a pair then an append of X and Y is Y. | REJECTED individual_introduced_after_then
+trap-inside-not | If Y is a pair and A is not a member of X then Y is a pair. | REJECTED individual_introduced_inside_not
+trap-nested | If W is an append of X and Y and V is an append of W and Z then V is an append of X and an append of Y and Z. | REJECTED several_argument_noun_inside_another
+trap-or-grouping | If Z is an append of X and Y and X is a pair or Y is a pair then Z is a pair. | REJECTED individual_introduced_after_then
+trap-inside-or | If Y is a pair, and X is a pair or Z is a pair then Y is a pair. | REJECTED individual_introduced_inside_or
+# Added in round 4, when the generator began to rely on them.  The compiler didn't
+# change; the expected statements were checked against Attempto's paraphrase.
+cases | If Z is an append of X and Y, and X is a pair then a head of Z is a head of X. If Z is an append of X and Y, and X is not a pair then a head of Z is a head of Y. | (and (implies (consp x2) (equal (car (append x2 x3)) (car x2))) (implies (not (consp x2)) (equal (car (append x2 x3)) (car x3))))
+conjunction | If Z is an intersection of X and Y, and A is a member of Z then A is a member of X and A is a member of Y. | (implies (member-equal x4 (intersection-equal x2 x3)) (and (member-equal x4 x2) (member-equal x4 x3)))
+not-equal | If W is a removal of B and X, and A is a member of W then A is a member of X and A is not B. | (implies (member-equal x4 (remove-equal x2 x3)) (and (member-equal x4 x3) (not (equal x4 x2))))
+equality-kept | If Y is a list-fix of X, and X is Y then X is a true-list. | (implies (equal x2 (true-list-fix x2)) (true-listp x2))
+not-nil | If Y is an index of K and X, and Y is not Nil then K is a member of X. | (implies (not (equal (index-of x2 x3) nil)) (member-equal x2 x3))
+# Other refusals.
+unknown-word | If X is a widget then X is a pair. | REJECTED unparsed
+not-a-conditional | X is a pair. | REJECTED unsupported_shape
+relation-two-args | If A is a member of X and Y then A is a pair. | REJECTED relation_noun_with_several_arguments
+wrong-arity | If Y is a length of X and Z then Y is natural. | REJECTED wrong_number_of_arguments

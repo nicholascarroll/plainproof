@@ -1,0 +1,27 @@
+# Theorems from ACL2's std/lists, chosen by hand for the first round.
+# Some are expected to fall outside the grammar; they're kept so the report shows why.
+len-of-append
+len-of-rev
+rev-of-append
+rev-of-rev
+len-of-list-fix
+rev-of-list-fix
+list-fix-of-append
+append-of-nil
+true-listp-of-list-fix
+list-fix-when-true-listp
+reverse-removal
+revappend-removal
+len-of-take
+len-of-repeat
+append-of-cons
+append-when-not-consp
+len-when-atom
+nthcdr-of-nthcdr
+len-of-nthcdr
+take-of-len-free
+true-listp-of-append
+consp-of-append
+car-of-append
+take-of-append
+member-of-append

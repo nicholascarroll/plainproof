@@ -1,0 +1,6 @@
+*.cert
+*.cert.out
+*.fasl
+*.port
+*.log
+__pycache__/

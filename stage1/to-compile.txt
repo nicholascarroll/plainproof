@@ -1,0 +1,25 @@
+len-of-append | If Z is an append of X and Y, and U is a length of X, and V is a length of Y then a length of Z is a sum of U and V.
+len-of-rev | If Y is a reversal of X then a length of Y is a length of X.
+rev-of-append | If Z is an append of X and Y, and U is a reversal of Y, and V is a reversal of X then a reversal of Z is an append of U and V.
+rev-of-rev | If Y is a reversal of X then a reversal of Y is a list-fix of X.
+len-of-list-fix | If Y is a list-fix of X then a length of Y is a length of X.
+rev-of-list-fix | If Y is a list-fix of X then a reversal of Y is a reversal of X.
+list-fix-of-append | If Z is an append of X and Y, and U is a list-fix of Y then a list-fix of Z is an append of X and U.
+append-of-nil | If Y is an append of X and Nil then Y is a list-fix of X.
+true-listp-of-list-fix | If Y is a list-fix of X then Y is a true-list.
+list-fix-when-true-listp | If X is a true-list then a list-fix of X is X.
+reverse-removal | If X is a true-list then a reverse of X is a reversal of X.
+revappend-removal | If Z is a revappend of X and Y, and U is a reversal of X then Z is an append of U and Y.
+len-of-take | If Y is a take of N and X then a length of Y is a natural-value of N.
+len-of-repeat | If Y is a repeat of N and X then a length of Y is a natural-value of N.
+append-of-cons | If Z is a cons of A and X, and U is an append of Z and Y, and V is an append of X and Y then U is a cons of A and V.
+append-when-not-consp | If Z is an append of X and Y, and X is not a pair then Z is Y.
+len-when-atom | If X is atomic then a length of X is 0.
+nthcdr-of-nthcdr | If Z is an nthcdr of B and X, and Y is an nthcdr of A and Z, and V is a natural-value of A, and W is a natural-value of B, and U is a sum of V and W then Y is an nthcdr of U and X.
+len-of-nthcdr | If X is an nthcdr of N and L, and Y is a length of L, and Z is a natural-value of N then a length of X is a natural-value of a difference of Y and Z.
+take-of-len-free | If a length of X is Y then a take of Y and X is a list-fix of X.
+true-listp-of-append | If an append of X and Y is a true-list then Y is a true-list. If Z is an append of X and Y, and Y is a true-list then Z is a true-list.
+consp-of-append | If an append of X and Y is a pair then X is a pair or Y is a pair. If Z is an append of X and Y, and X is a pair or Y is a pair then Z is a pair.
+car-of-append | If Z is an append of X and Y, and X is a pair then a head of Z is a head of X. If Z is an append of X and Y, and X is not a pair then a head of Z is a head of Y.
+take-of-append | If Z is an append of X and Y, and a natural-value of N is smaller than a length of X then a take of N and Z is a take of N and X. If U is an append of X and Y, and Z is a take of N and U, and P is a length of X, and W is a difference of N and P, and V is a take of W and Y, and a natural-value of N is not smaller than a length of X then Z is an append of X and V.
+member-of-append | If Z is an append of X and Y, and A is a member of Z then A is a member of X or A is a member of Y. If there is something A, and Z is an append of X and Y, and A is a member of X or A is a member of Y then A is a member of Z.
